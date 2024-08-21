@@ -1,0 +1,198 @@
+/* main.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('./reset.css');
+@import url('./animations.css');
+
+
+/* Estilo Global */
+body {
+    background-color: #1c1c1c;
+    color: #eaeaea;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: #eaeaea;
+    margin: 0 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: #f0b400; /* Amarelo claro */
+}
+
+.mobile-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.nav-active {
+    display: flex;
+}
+
+h1, h2, h3 {
+    color: #eaeaea;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+a.button {
+    display: inline-block;
+    background-color: #a044ff; /* Roxo escuro */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+a.button:hover {
+    background-color: #f0b400; /* Amarelo claro */
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    padding: 20px;
+    text-align: center;
+    color: #eaeaea;
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+}
+
+/* Configurações Globais */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos do Cabeçalho */
+header {
+    background-color: #333; /* Preto */
+    padding: 15px 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centraliza os itens do menu */
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #FFFFFF; /* Branco */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #5A2B81; /* Roxo Escuro */
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: #E7C700; /* Amarelo Claro */
+    color: #333;
+}
+
+
+/* Estilo para Seções */
+section {
+    padding: 60px 20px;
+    background-color: #FFFFFF; /* Branco */
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h1, section h2, section h3 {
+    color: #5A2B81; /* Roxo Escuro */
+}
+
+section p {
+    color: #333; /* Cinza Escuro */
+    line-height: 1.6;
+}
+
+/* Botões */
+button {
+    background-color: #E7C700; /* Amarelo Claro */
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5A2B81; /* Roxo Escuro */
+    color: #FFFFFF;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333; /* Preto */
+    color: #FFFFFF; /* Branco */
+    text-align: center;
+    padding: 20px;
+}
+
+footer a {
+    color: #E7C700; /* Amarelo Claro */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #5A2B81; /* Roxo Escuro */
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+}
