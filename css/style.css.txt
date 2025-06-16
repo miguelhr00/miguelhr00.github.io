@@ -1,0 +1,361 @@
+/* Paleta de Cores:
+   Amarelo Escuro: #FFD700
+   Preto: #1A1A1A
+   Cinza Escuro (texto): #333333
+   Branco (texto em fundo escuro): #FFFFFF
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #1A1A1A; /* Fundo principal preto */
+    color: #FFFFFF; /* Texto padrão branco */
+}
+
+header {
+    background-color: #1A1A1A;
+    padding: 1rem 0;
+    border-bottom: 2px solid #FFD700; /* Linha amarela na parte inferior do cabeçalho */
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #FFD700;
+    color: #1A1A1A;
+    border-radius: 5px;
+}
+
+/* Seção Hero (Página Inicial) */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: calc(100vh - 120px); /* Ajuste para ocupar a altura da tela menos cabeçalho/rodapé */
+    background: url('../img/hero-background.jpg') no-repeat center center/cover; /* Adicione uma imagem de fundo aqui */
+    color: #FFFFFF;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Overlay escuro */
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+    padding: 2rem;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #FFD700; /* Título principal amarelo */
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.button {
+    display: inline-block;
+    background-color: #FFD700;
+    color: #1A1A1A;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: #e0b800; /* Amarelo um pouco mais escuro ao passar o mouse */
+    transform: translateY(-3px);
+}
+
+.button-small {
+    display: inline-block;
+    background-color: #FFD700;
+    color: #1A1A1A;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.button-small:hover {
+    background-color: #e0b800;
+}
+
+/* Estilos gerais para páginas de conteúdo (Sobre Mim, Portfólio, Projetos, Contato) */
+.content-page {
+    padding: 2rem;
+    max-width: 960px;
+    margin: 2rem auto;
+    background-color: #1A1A1A; /* Fundo preto para o conteúdo */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2); /* Sombra amarela */
+    color: #FFFFFF;
+}
+
+.content-page h2 {
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+/* Seção Sobre Mim */
+.about-section {
+    text-align: center;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 3px solid #FFD700;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: #f0f0f0; /* Um cinza mais claro para o texto */
+}
+
+.about-section h3 {
+    color: #FFD700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-section ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.about-section ul li {
+    background-color: #333333; /* Fundo cinza escuro para itens de lista */
+    color: #FFD700;
+    padding: 0.7rem 1.2rem;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.about-section ul li:hover {
+    background-color: #FFD700;
+    color: #1A1A1A;
+}
+
+/* Seção Portfólio */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-item {
+    background-color: #2a2a2a; /* Fundo mais escuro para o item */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(255, 215, 0, 0.4);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 2px solid #FFD700;
+}
+
+.portfolio-item h3 {
+    color: #FFD700;
+    margin: 1rem 0.5rem 0.5rem;
+}
+
+.portfolio-item p {
+    color: #f0f0f0;
+    padding: 0 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+/* Seção Projetos */
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.project-item {
+    background-color: #2a2a2a;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-left: 5px solid #FFD700;
+}
+
+.project-item h3 {
+    color: #FFD700;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.project-item p {
+    margin-bottom: 0.5rem;
+    color: #f0f0f0;
+}
+
+.project-item strong {
+    color: #FFD700;
+}
+
+/* Seção Contato */
+.contact-section {
+    text-align: center;
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #f0f0f0;
+}
+
+.contact-info a {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #FFFFFF;
+}
+
+.contact-info p {
+    margin-bottom: 0.7rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.contact-form label {
+    font-weight: bold;
+    color: #FFD700;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 0.8rem;
+    border: 1px solid #FFD700;
+    border-radius: 5px;
+    background-color: #333333;
+    color: #FFFFFF;
+    font-size: 1rem;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #FFFFFF;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.contact-form button {
+    align-self: center;
+    margin-top: 1rem;
+}
+
+
+footer {
+    background-color: #1A1A1A;
+    color: #FFD700; /* Texto do rodapé amarelo */
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    border-top: 2px solid #FFD700;
+    font-size: 0.9rem;
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-page {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+}

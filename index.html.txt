@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miguel Honczaryk Ribeiro - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="about.html">Sobre Mim</a></li>
+                <li><a href="portfolio.html">Portfólio</a></li>
+                <li><a href="projects.html">Projetos</a></li>
+                <li><a href="contact.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <div class="hero-content">
+            <h1>Olá, eu sou Miguel Honczaryk Ribeiro</h1>
+            <p>Desenvolvedor Web | Designer | Apaixonado por Tecnologia</p>
+            <a href="portfolio.html" class="button">Ver Meus Trabalhos</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Miguel Honczaryk Ribeiro. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Miguel Honczaryk Ribeiro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="about.html">Sobre Mim</a></li>
+                <li><a href="portfolio.html">Portfólio</a></li>
+                <li><a href="projects.html">Projetos</a></li>
+                <li><a href="contact.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-page">
+        <section class="contact-section">
+            <h2>Entre em Contato</h2>
+            <p>Ficaria feliz em discutir novas oportunidades ou projetos. Sinta-se à vontade para me contatar através dos meios abaixo:</p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:seu.email@exemplo.com">seu.email@exemplo.com</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/seuperfil" target="_blank">linkedin.com/in/seuperfil</a></p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/seugithub" target="_blank">github.com/seugithub</a></p>
+                <p><strong>Telefone/WhatsApp:</strong> <a href="tel:+55XXYYYYYYYYY"> +55 (XX) YYYYY-YYYY</a> (Opcional)</p>
+            </div>
+
+            </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Miguel Honczaryk Ribeiro. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
