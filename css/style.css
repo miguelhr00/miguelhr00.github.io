@@ -90,7 +90,7 @@ header {
     transform: translateY(-2px); /* Leve elevação no hover */
 }
 
-/* Estilos do Hamburger Menu (Mantidos da versão anterior) */
+/* Estilos do Hamburger Menu */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -124,17 +124,20 @@ header {
 }
 
 
-/* Seção Hero (Página Inicial) */
+/* Seção Hero (Página Inicial) - Aprimorada */
 .hero {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     min-height: calc(100vh - 120px);
-    background: url('../img/hero-background.jpg') no-repeat center center/cover;
+    background: url('../img/hero-background.jpg') no-repeat center center; /* Remove 'cover' daqui */
+    background-size: cover; /* Adiciona cover separadamente para mais controle */
+    background-attachment: fixed; /* Efeito Parallax */
     color: #FFFFFF;
     position: relative;
     padding: 2rem;
+    overflow: hidden; /* Garante que nada transborde */
 }
 
 .hero::before {
@@ -144,7 +147,8 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.75); /* Overlay mais escuro */
+    /* Gradiente sutil do preto para um preto mais transparente */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.8) 100%);
     z-index: 1;
 }
 
@@ -153,25 +157,51 @@ header {
     padding: 2rem;
     max-width: 900px;
     width: 100%;
+    display: flex; /* Para centralizar os itens vertivalmente */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem; /* Espaçamento entre os elementos do hero */
 }
 
+/* Animação de Entrada para o Conteúdo do Hero */
+.animate-hero-content {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.8s forwards; /* Animação padrão */
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+@keyframes fadeInSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 .hero-content h1 {
-    font-size: 4rem; /* Um pouco maior */
-    margin-bottom: 1rem;
+    font-size: 4.5rem; /* Um pouco maior e mais impactante */
+    margin-bottom: 0.5rem; /* Espaçamento menor */
     color: #FFD700;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Sombra mais forte */
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Sombra mais forte */
+    line-height: 1.1;
 }
 
 .hero-content p {
-    font-family: 'Roboto Mono', monospace; /* Fonte monoespaçada para o efeito de digitação */
-    font-size: 1.8rem; /* Um pouco maior */
-    margin-bottom: 2.5rem;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2rem; /* Um pouco maior e mais destacado */
+    margin-bottom: 2rem; /* Espaçamento ajustado */
     line-height: 1.5;
     color: #f0f0f0;
-    min-height: 2.5rem; /* Garante espaço para o texto animado */
+    min-height: 2.8rem; /* Garante espaço para o texto animado */
+    font-weight: 300; /* Um pouco mais leve */
 }
 
-/* Efeito de cursor do typing text */
+/* Efeito de cursor do typing text (mantido) */
 .hero-content p::after {
     content: '|';
     display: inline-block;
@@ -190,19 +220,19 @@ header {
     display: inline-block;
     background-color: #FFD700;
     color: #1A1A1A;
-    padding: 1.2rem 3rem; /* Padding maior */
+    padding: 1.3rem 3.5rem; /* Padding maior para um botão mais substancial */
     text-decoration: none;
-    border-radius: 10px; /* Bordas mais arredondadas */
-    font-weight: 700; /* Mais negrito */
-    font-size: 1.2rem; /* Fonte maior */
+    border-radius: 12px; /* Mais arredondado */
+    font-weight: 700;
+    font-size: 1.3rem; /* Fonte maior */
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Sombra mais proeminente */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra mais proeminente */
 }
 
 .button:hover {
     background-color: #e0b800;
-    transform: translateY(-7px); /* Elevação maior */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    transform: translateY(-9px); /* Elevação maior */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
 }
 
 .button-small {
@@ -211,8 +241,8 @@ header {
     color: #1A1A1A;
     padding: 0.7rem 1.4rem;
     text-decoration: none;
-    border-radius: 6px; /* Mais arredondado */
-    font-size: 1rem; /* Um pouco maior */
+    border-radius: 6px;
+    font-size: 1rem;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.2s ease;
     margin-top: 10px;
@@ -226,14 +256,14 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos gerais para páginas de conteúdo (Sobre Mim, Portfólio, Projetos, Contato) */
+/* Estilos gerais para páginas de conteúdo (Sobre Mim, Projetos, Contato) */
 .content-page {
-    padding: 3.5rem; /* Padding maior */
-    max-width: 1100px; /* Largura máxima maior */
-    margin: 3.5rem auto; /* Centraliza a página com margem superior/inferior */
-    background-color: #1A1A1A; /* Fundo preto para o conteúdo */
-    border-radius: 15px; /* Bordas mais arredondadas para o container */
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.3); /* Sombra amarela destacada */
+    padding: 3.5rem;
+    max-width: 1100px;
+    margin: 3.5rem auto;
+    background-color: #1A1A1A;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
     color: #FFFFFF;
     /* Animação de Entrada para Seções */
     opacity: 0;
@@ -249,35 +279,35 @@ header {
 .content-page h2 {
     color: #FFD700;
     text-align: center;
-    margin-bottom: 3rem; /* Margem maior */
-    font-size: 3.5rem; /* Maior */
+    margin-bottom: 3rem;
+    font-size: 3.5rem;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     font-weight: 700;
 }
 
-/* Seção Sobre Mim */
+/* Seção Sobre Mim (mantida) */
 .about-section {
     text-align: center;
 }
 
 .profile-img {
-    width: 250px; /* Maior */
+    width: 250px;
     height: 250px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 2.5rem;
-    border: 6px solid #FFD700; /* Borda amarela mais grossa */
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); /* Sombra amarela na imagem */
+    border: 6px solid #FFD700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
     transition: transform 0.4s ease;
 }
 
 .profile-img:hover {
-    transform: scale(1.08) rotate(3deg); /* Efeito mais dinâmico */
+    transform: scale(1.08) rotate(3deg);
 }
 
 .about-section p {
-    font-size: 1.2rem; /* Um pouco maior */
-    line-height: 1.9; /* Maior espaçamento entre linhas */
+    font-size: 1.2rem;
+    line-height: 1.9;
     margin-bottom: 2rem;
     color: #e0e0e0;
     text-align: justify;
@@ -285,9 +315,9 @@ header {
 
 .about-section h3 {
     color: #FFD700;
-    margin-top: 3.5rem; /* Margem maior */
+    margin-top: 3.5rem;
     margin-bottom: 1.8rem;
-    font-size: 2.5rem; /* Maior */
+    font-size: 2.5rem;
     font-weight: 600;
 }
 
@@ -297,15 +327,15 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 18px; /* Maior espaçamento */
+    gap: 18px;
     margin-bottom: 2.5rem;
 }
 
 .about-section ul li {
     background-color: #333333;
     color: #FFD700;
-    padding: 0.9rem 1.8rem; /* Padding maior */
-    border-radius: 30px; /* Mais arredondado */
+    padding: 0.9rem 1.8rem;
+    border-radius: 30px;
     font-weight: 600;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.2s ease;
     cursor: default;
@@ -315,14 +345,14 @@ header {
 .about-section ul li:hover {
     background-color: #FFD700;
     color: #1A1A1A;
-    transform: translateY(-5px); /* Elevação maior */
+    transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Nova Seção: Introdução aos Projetos */
+/* Nova Seção: Introdução aos Projetos (mantida) */
 .projects-header {
     text-align: center;
-    margin-bottom: 3rem; /* Espaçamento abaixo da introdução */
+    margin-bottom: 3rem;
 }
 
 .projects-header p {
@@ -333,71 +363,71 @@ header {
     line-height: 1.7;
 }
 
-/* Seção de Projetos - Ajustada para ter cards com imagens */
-.projects-grid { /* Estilo para o grid de projetos */
+/* Seção de Projetos - Ajustada para ter cards com imagens (mantida) */
+.projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 320px é um bom tamanho mínimo */
-    gap: 2.5rem; /* Espaçamento entre os cards */
-    justify-content: center; /* Centraliza os itens */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    justify-content: center;
 }
 
-.project-item-card { /* Estilo para cada card de projeto */
-    background-color: #2a2a2a; /* Fundo mais escuro para o card */
-    border-radius: 12px; /* Bordas arredondadas */
-    overflow: hidden; /* Garante que a imagem não vaze */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Sombra sutil */
+.project-item-card {
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     text-align: center;
-    display: flex; /* Para layout interno de imagem e conteúdo */
+    display: flex;
     flex-direction: column;
 }
 
 .project-item-card:hover {
-    transform: translateY(-8px); /* Efeito de elevação no hover */
-    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.5); /* Sombra amarela no hover */
-    background-color: #333333; /* Leve escurecimento no hover */
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.5);
+    background-color: #333333;
 }
 
 .project-image-container {
     position: relative;
     width: 100%;
-    height: 220px; /* Altura fixa para as imagens dos projetos */
-    overflow: hidden; /* Para garantir que o overlay e a imagem se encaixem */
+    height: 220px;
+    overflow: hidden;
 }
 
 .project-item-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    object-fit: cover;
     display: block;
-    border-bottom: 3px solid #FFD700; /* Linha amarela abaixo da imagem */
-    transition: transform 0.4s ease; /* Animação de zoom na imagem */
+    border-bottom: 3px solid #FFD700;
+    transition: transform 0.4s ease;
 }
 
 .project-item-card:hover img {
-    transform: scale(1.05); /* Leve zoom na imagem ao passar o mouse */
+    transform: scale(1.05);
 }
 
-.image-overlay { /* Overlay sutil na imagem */
+.image-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.2); /* Preto semitransparente */
+    background: rgba(0, 0, 0, 0.2);
     transition: background 0.3s ease;
 }
 
 .project-item-card:hover .image-overlay {
-    background: rgba(0, 0, 0, 0.4); /* Fica mais escuro no hover */
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .project-card-content {
-    padding: 1.5rem; /* Espaçamento interno para o conteúdo do card */
-    flex-grow: 1; /* Faz o conteúdo ocupar o espaço restante */
+    padding: 1.5rem;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Empurra botões para baixo se houver mais conteúdo */
+    justify-content: space-between;
 }
 
 .project-item-card h3 {
@@ -409,7 +439,7 @@ header {
 }
 
 .project-item-card .technologies {
-    color: #ABABAB; /* Cor mais clara para tecnologias */
+    color: #ABABAB;
     font-size: 0.9rem;
     margin-bottom: 1rem;
     font-style: italic;
@@ -420,29 +450,28 @@ header {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
-    flex-grow: 1; /* Faz a descrição ocupar o máximo de espaço antes dos botões */
+    flex-grow: 1;
 }
 
 .project-buttons {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Garante que os botões quebrem linha se necessário */
-    gap: 10px; /* Espaçamento entre os botões */
-    margin-top: 1rem; /* Espaçamento acima dos botões */
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1rem;
 }
 
-/* Ícones dentro dos botões */
 .button-small i {
     margin-left: 8px;
     transition: transform 0.2s ease;
 }
 
 .button-small:hover i {
-    transform: translateX(3px); /* Move o ícone levemente no hover */
+    transform: translateX(3px);
 }
 
 
-/* Seção Contato */
+/* Seção Contato (mantida) */
 .contact-section {
     text-align: center;
 }
@@ -543,7 +572,7 @@ footer {
     position: relative;
 }
 
-/* Ícones de Redes Sociais no Rodapé */
+/* Ícones de Redes Sociais no Rodapé (mantida) */
 .social-icons {
     margin-top: 1rem;
     display: flex;
@@ -562,7 +591,7 @@ footer {
     transform: scale(1.2);
 }
 
-/* Botão Voltar ao Topo */
+/* Botão Voltar ao Topo (mantida) */
 #scrollToTopBtn {
     display: none;
     position: fixed;
@@ -592,10 +621,10 @@ footer {
 /* Responsividade Aprimorada */
 @media (max-width: 992px) {
     .hero-content h1 {
-        font-size: 3rem;
+        font-size: 3.5rem; /* Ajuste para telas um pouco menores */
     }
     .hero-content p {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
     .content-page {
         padding: 2.5rem;
@@ -657,14 +686,14 @@ footer {
     }
 
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem; /* Ajuste para mobile */
     }
     .hero-content p {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
     .button {
-        padding: 0.8rem 1.8rem;
-        font-size: 1rem;
+        padding: 1rem 2.5rem; /* Ajuste para mobile */
+        font-size: 1.1rem;
     }
 
     .content-page {
@@ -687,7 +716,7 @@ footer {
     }
 
     .projects-grid { /* Ajuste para mobile */
-        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        grid-template-columns: 1fr;
     }
 
     .project-item-card img {
@@ -729,15 +758,15 @@ footer {
 
 @media (max-width: 480px) {
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 2.2rem; /* Ajuste para telas muito pequenas */
     }
     .hero-content p {
-        font-size: 0.9rem;
-        min-height: 2rem; /* Ajuste para telas muito pequenas */
+        font-size: 1.1rem;
+        min-height: 2.5rem; /* Ajuste para telas muito pequenas */
     }
     .button {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.9rem;
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
     }
     .content-page {
         padding: 1rem;
@@ -758,10 +787,10 @@ footer {
         font-size: 0.85rem;
     }
     .project-buttons {
-        flex-direction: column; /* Botões empilhados em telas muito pequenas */
+        flex-direction: column;
         align-items: center;
     }
     .project-buttons .button-small {
-        width: 90%; /* Ocupa quase toda a largura */
+        width: 90%;
     }
 }
