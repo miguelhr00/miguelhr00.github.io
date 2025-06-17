@@ -235,7 +235,7 @@ header {
     border-radius: 15px; /* Bordas mais arredondadas para o container */
     box-shadow: 0 0 25px rgba(255, 215, 0, 0.3); /* Sombra amarela destacada */
     color: #FFFFFF;
-    /* 3. Animação de Entrada para Seções */
+    /* Animação de Entrada para Seções */
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -319,49 +319,126 @@ header {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
+/* Nova Seção: Introdução aos Projetos */
+.projects-header {
+    text-align: center;
+    margin-bottom: 3rem; /* Espaçamento abaixo da introdução */
+}
+
+.projects-header p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    max-width: 800px;
+    margin: 1rem auto 0;
+    line-height: 1.7;
+}
+
 /* Seção de Projetos - Ajustada para ter cards com imagens */
-.projects-grid { /* Novo estilo para o grid de projetos */
+.projects-grid { /* Estilo para o grid de projetos */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 320px é um bom tamanho mínimo */
     gap: 2.5rem; /* Espaçamento entre os cards */
     justify-content: center; /* Centraliza os itens */
 }
 
-.project-item-card { /* Novo estilo para cada card de projeto */
+.project-item-card { /* Estilo para cada card de projeto */
     background-color: #2a2a2a; /* Fundo mais escuro para o card */
     border-radius: 12px; /* Bordas arredondadas */
     overflow: hidden; /* Garante que a imagem não vaze */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Sombra sutil */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     text-align: center;
-    padding-bottom: 1.5rem; /* Espaçamento na parte inferior do card */
+    display: flex; /* Para layout interno de imagem e conteúdo */
+    flex-direction: column;
 }
 
 .project-item-card:hover {
     transform: translateY(-8px); /* Efeito de elevação no hover */
     box-shadow: 0 10px 20px rgba(255, 215, 0, 0.5); /* Sombra amarela no hover */
+    background-color: #333333; /* Leve escurecimento no hover */
+}
+
+.project-image-container {
+    position: relative;
+    width: 100%;
+    height: 220px; /* Altura fixa para as imagens dos projetos */
+    overflow: hidden; /* Para garantir que o overlay e a imagem se encaixem */
 }
 
 .project-item-card img {
     width: 100%;
-    height: 220px; /* Altura fixa para as imagens dos projetos */
+    height: 100%;
     object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
     display: block;
     border-bottom: 3px solid #FFD700; /* Linha amarela abaixo da imagem */
+    transition: transform 0.4s ease; /* Animação de zoom na imagem */
+}
+
+.project-item-card:hover img {
+    transform: scale(1.05); /* Leve zoom na imagem ao passar o mouse */
+}
+
+.image-overlay { /* Overlay sutil na imagem */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Preto semitransparente */
+    transition: background 0.3s ease;
+}
+
+.project-item-card:hover .image-overlay {
+    background: rgba(0, 0, 0, 0.4); /* Fica mais escuro no hover */
+}
+
+.project-card-content {
+    padding: 1.5rem; /* Espaçamento interno para o conteúdo do card */
+    flex-grow: 1; /* Faz o conteúdo ocupar o espaço restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empurra botões para baixo se houver mais conteúdo */
 }
 
 .project-item-card h3 {
     color: #FFD700;
-    margin: 1.5rem 0.5rem 0.8rem;
+    margin-top: 0;
+    margin-bottom: 0.8rem;
     font-size: 1.8rem;
+    font-weight: 600;
 }
 
-.project-item-card p {
+.project-item-card .technologies {
+    color: #ABABAB; /* Cor mais clara para tecnologias */
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.project-item-card .description {
     color: #f0f0f0;
-    padding: 0 1.2rem;
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
+    flex-grow: 1; /* Faz a descrição ocupar o máximo de espaço antes dos botões */
+}
+
+.project-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Garante que os botões quebrem linha se necessário */
+    gap: 10px; /* Espaçamento entre os botões */
+    margin-top: 1rem; /* Espaçamento acima dos botões */
+}
+
+/* Ícones dentro dos botões */
+.button-small i {
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+}
+
+.button-small:hover i {
+    transform: translateX(3px); /* Move o ícone levemente no hover */
 }
 
 
@@ -371,7 +448,7 @@ header {
 }
 
 .contact-section p {
-    font-size: 1.2rem; /* Um pouco maior */
+    font-size: 1.2rem;
     margin-bottom: 2.5rem;
     color: #e0e0e0;
 }
@@ -379,13 +456,13 @@ header {
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* Maior espaçamento entre os itens de contato */
+    gap: 1.5rem;
     margin-bottom: 3rem;
 }
 
 .contact-info p {
     margin: 0;
-    font-size: 1.2rem; /* Um pouco maior */
+    font-size: 1.2rem;
 }
 
 .contact-info a {
@@ -397,19 +474,19 @@ header {
 
 .contact-info a:hover {
     color: #FFFFFF;
-    text-shadow: 0 0 10px #FFD700; /* Efeito de brilho mais forte */
+    text-shadow: 0 0 10px #FFD700;
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1.8rem; /* Maior espaçamento entre os campos do formulário */
+    gap: 1.8rem;
     margin-top: 3rem;
-    max-width: 700px; /* Maior largura */
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
-    padding: 2rem; /* Padding maior */
+    padding: 2rem;
     background-color: #2a2a2a;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
@@ -418,19 +495,19 @@ header {
 .contact-form label {
     font-weight: bold;
     color: #FFD700;
-    font-size: 1.2rem; /* Um pouco maior */
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
 }
 
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea {
-    padding: 1.1rem; /* Padding maior */
+    padding: 1.1rem;
     border: 2px solid #FFD700;
-    border-radius: 10px; /* Mais arredondado */
+    border-radius: 10px;
     background-color: #333333;
     color: #FFFFFF;
-    font-size: 1.1rem; /* Um pouco maior */
+    font-size: 1.1rem;
     width: 100%;
 }
 
@@ -439,12 +516,12 @@ header {
 .contact-form textarea:focus {
     outline: none;
     border-color: #FFFFFF;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8); /* Sombra amarela mais forte */
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
 }
 
 .contact-form textarea {
     resize: vertical;
-    min-height: 150px; /* Altura mínima maior */
+    min-height: 150px;
 }
 
 .contact-form button {
@@ -459,47 +536,47 @@ footer {
     background-color: #1A1A1A;
     color: #FFD700;
     text-align: center;
-    padding: 2rem 0; /* Padding maior */
+    padding: 2rem 0;
     margin-top: 3rem;
     border-top: 2px solid #FFD700;
     font-size: 1rem;
-    position: relative; /* Para posicionar os ícones sociais */
+    position: relative;
 }
 
-/* 4. Ícones de Redes Sociais no Rodapé */
+/* Ícones de Redes Sociais no Rodapé */
 .social-icons {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
-    gap: 25px; /* Espaçamento entre os ícones */
+    gap: 25px;
 }
 
 .social-icons a {
-    color: #FFFFFF; /* Ícones brancos */
-    font-size: 1.8rem; /* Tamanho do ícone */
+    color: #FFFFFF;
+    font-size: 1.8rem;
     transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .social-icons a:hover {
-    color: #FFD700; /* Amarelo no hover */
-    transform: scale(1.2); /* Efeito de zoom */
+    color: #FFD700;
+    transform: scale(1.2);
 }
 
-/* 5. Botão Voltar ao Topo */
+/* Botão Voltar ao Topo */
 #scrollToTopBtn {
-    display: none; /* Escondido por padrão */
-    position: fixed; /* Fixo na tela */
-    bottom: 30px; /* Distância do fundo */
-    right: 30px; /* Distância da direita */
-    z-index: 99; /* Acima de outros elementos */
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
     background-color: #FFD700;
     color: #1A1A1A;
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 15px 18px; /* Ajuste para centralizar o ícone */
-    border-radius: 50%; /* Botão redondo */
-    font-size: 1.5rem; /* Tamanho do ícone */
+    padding: 15px 18px;
+    border-radius: 50%;
+    font-size: 1.5rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
     opacity: 0.8;
@@ -527,9 +604,12 @@ footer {
     .content-page h2 {
         font-size: 2.5rem;
     }
-    .projects-grid { /* Ajuste para tablets */
+    .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2rem;
+    }
+    .projects-header p {
+        font-size: 1.1rem;
     }
 }
 
@@ -619,6 +699,9 @@ footer {
     .project-item-card p {
         font-size: 0.9rem;
     }
+    .project-card-content {
+        padding: 1rem;
+    }
 
     .contact-section p {
         font-size: 1rem;
@@ -673,5 +756,12 @@ footer {
     .button-small {
         padding: 0.4rem 0.8rem;
         font-size: 0.85rem;
+    }
+    .project-buttons {
+        flex-direction: column; /* Botões empilhados em telas muito pequenas */
+        align-items: center;
+    }
+    .project-buttons .button-small {
+        width: 90%; /* Ocupa quase toda a largura */
     }
 }
