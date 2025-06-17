@@ -230,10 +230,10 @@ header {
 .content-page {
     padding: 3.5rem; /* Padding maior */
     max-width: 1100px; /* Largura máxima maior */
-    margin: 3.5rem auto;
-    background-color: #1A1A1A;
-    border-radius: 15px; /* Bordas mais arredondadas */
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.3); /* Sombra amarela mais forte */
+    margin: 3.5rem auto; /* Centraliza a página com margem superior/inferior */
+    background-color: #1A1A1A; /* Fundo preto para o conteúdo */
+    border-radius: 15px; /* Bordas mais arredondadas para o container */
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.3); /* Sombra amarela destacada */
     color: #FFFFFF;
     /* 3. Animação de Entrada para Seções */
     opacity: 0;
@@ -266,8 +266,8 @@ header {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 2.5rem;
-    border: 6px solid #FFD700; /* Borda mais grossa */
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); /* Sombra mais forte */
+    border: 6px solid #FFD700; /* Borda amarela mais grossa */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); /* Sombra amarela na imagem */
     transition: transform 0.4s ease;
 }
 
@@ -319,90 +319,51 @@ header {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Seção Portfólio */
-.portfolio-grid {
+/* Seção de Projetos - Ajustada para ter cards com imagens */
+.projects-grid { /* Novo estilo para o grid de projetos */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Min-width maior */
-    gap: 3rem; /* Maior espaçamento entre os cards */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 320px é um bom tamanho mínimo */
+    gap: 2.5rem; /* Espaçamento entre os cards */
+    justify-content: center; /* Centraliza os itens */
 }
 
-.portfolio-item {
-    background-color: #2a2a2a;
-    border-radius: 12px; /* Mais arredondado */
-    overflow: hidden;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra mais forte */
+.project-item-card { /* Novo estilo para cada card de projeto */
+    background-color: #2a2a2a; /* Fundo mais escuro para o card */
+    border-radius: 12px; /* Bordas arredondadas */
+    overflow: hidden; /* Garante que a imagem não vaze */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Sombra sutil */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    padding-bottom: 2rem; /* Padding maior */
+    padding-bottom: 1.5rem; /* Espaçamento na parte inferior do card */
 }
 
-.portfolio-item:hover {
-    transform: translateY(-10px); /* Elevação mais pronunciada */
-    box-shadow: 0 12px 25px rgba(255, 215, 0, 0.6); /* Sombra amarela mais forte */
+.project-item-card:hover {
+    transform: translateY(-8px); /* Efeito de elevação no hover */
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.5); /* Sombra amarela no hover */
 }
 
-.portfolio-item img {
+.project-item-card img {
     width: 100%;
-    height: 250px; /* Altura maior para as imagens */
-    object-fit: cover;
+    height: 220px; /* Altura fixa para as imagens dos projetos */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
     display: block;
-    border-bottom: 4px solid #FFD700; /* Borda amarela mais grossa */
+    border-bottom: 3px solid #FFD700; /* Linha amarela abaixo da imagem */
 }
 
-.portfolio-item h3 {
+.project-item-card h3 {
     color: #FFD700;
-    margin: 1.8rem 0.5rem 1rem;
-    font-size: 2rem; /* Maior */
-    font-weight: 600;
+    margin: 1.5rem 0.5rem 0.8rem;
+    font-size: 1.8rem;
 }
 
-.portfolio-item p {
+.project-item-card p {
     color: #f0f0f0;
-    padding: 0 1.5rem;
-    font-size: 1.05rem; /* Um pouco maior */
-    line-height: 1.7;
-    margin-bottom: 1.8rem;
+    padding: 0 1.2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
 }
 
-/* Seção Projetos */
-.project-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem; /* Maior espaçamento entre os projetos */
-}
-
-.project-item {
-    background-color: #2a2a2a;
-    padding: 2.2rem; /* Padding maior */
-    border-radius: 12px; /* Mais arredondado */
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
-    border-left: 8px solid #FFD700; /* Borda amarela lateral mais grossa */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-item:hover {
-    transform: translateX(8px); /* Leve movimento para a direita */
-    box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
-}
-
-.project-item h3 {
-    color: #FFD700;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 2.2rem; /* Maior */
-    font-weight: 600;
-}
-
-.project-item p {
-    margin-bottom: 1rem;
-    color: #e0e0e0;
-    font-size: 1.1rem; /* Um pouco maior */
-    line-height: 1.8;
-}
-
-.project-item strong {
-    color: #FFD700;
-}
 
 /* Seção Contato */
 .contact-section {
@@ -566,7 +527,8 @@ footer {
     .content-page h2 {
         font-size: 2.5rem;
     }
-    .portfolio-grid {
+    .projects-grid { /* Ajuste para tablets */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2rem;
     }
 }
@@ -644,25 +606,18 @@ footer {
         font-size: 1.8rem;
     }
 
-    .portfolio-grid {
-        grid-template-columns: 1fr;
+    .projects-grid { /* Ajuste para mobile */
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
     }
 
-    .portfolio-item img {
+    .project-item-card img {
         height: 180px;
     }
-    .portfolio-item h3 {
+    .project-item-card h3 {
         font-size: 1.6rem;
     }
-    .portfolio-item p {
+    .project-item-card p {
         font-size: 0.9rem;
-    }
-
-    .project-item {
-        padding: 1.5rem;
-    }
-    .project-item h3 {
-        font-size: 1.8rem;
     }
 
     .contact-section p {
