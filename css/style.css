@@ -529,14 +529,19 @@ header {
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 1.8rem; /* Maior espaçamento entre os itens de contato */
+    gap: 1.8rem;
     margin-bottom: 3.5rem;
+    align-items: center; /* ISSO CENTRALIZA OS ITENS */
+    justify-content: center;
+    width: 100%; /* Garante que o container ocupe a largura total disponível */
 }
 
+/* Garante que os textos dentro dos links também fiquem centralizados se quebrarem linha */
 .contact-info p {
     margin: 0;
-    font-size: 1.3rem; /* Maior */
+    font-size: 1.3rem;
     font-weight: 500;
+    text-align: center; 
 }
 
 .contact-info a {
@@ -588,12 +593,12 @@ header {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.contact-form input[type="text"]:focus,
-.contact-form input[type="email"]:focus,
+.contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: #FFFFFF;
-    box-shadow: 0 0 12px rgba(255, 215, 0, 0.9); /* Sombra amarela mais forte */
+    border-color: #FFD700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); /* Sombra mais suave */
+    transform: translateY(-2px); /* Efeito visual de "levantar" ao clicar */
 }
 
 .contact-form textarea {
